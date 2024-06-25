@@ -1,0 +1,51 @@
+Algorithm:
+Initialize Array and Calculate Size:
+
+Define an array arr with elements {1, 3, 7, 0, 5, 9, 2}.
+Calculate the size of the array n using sizeof(arr) / sizeof(arr[0]).
+Initialize Maximum Value:
+
+Create a function findMax that takes the array arr and its size n as arguments.
+Inside the function, initialize a variable max to the first element of the array arr[0].
+Iterate Through Array:
+
+Loop through the array starting from the second element (index 1) to the last element (index n-1).
+For each element arr[i] in the array, compare it with the current maximum value max.
+If arr[i] is greater than max, update max to arr[i].
+Return Maximum Value:
+
+After completing the loop, return the value of max.
+Print the Result:
+
+In the main function, call the findMax function with the array arr and its size n.
+Store the returned maximum value in a variable max.
+Print the maximum value using printf.
+
+Program:
+#include <stdio.h>
+
+// Function to find the highest value in an array
+int findMax(int arr[], int n) {
+    // Initialize max with the first element of the array
+    int max = arr[0];
+
+    // Iterate through the array starting from the second element
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i]; // Update max if the current element is greater
+        }
+    }
+
+    return max; // Return the maximum value found
+}
+
+int main() {
+    int arr[] = {1, 3, 7, 0, 5, 9, 2}; // Example array
+    int n = sizeof(arr) / sizeof(arr[0]); // Calculate the size of the array
+
+    int max = findMax(arr, n); // Find the maximum value in the array
+
+    printf("The highest value in the array is: %d\n", max); // Print the maximum value
+
+    return 0;
+}
