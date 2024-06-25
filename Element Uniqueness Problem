@@ -1,0 +1,39 @@
+Algorithm:
+It uses two nested loops to compare each element (arr[i]) with every other subsequent element (arr[j] where j > i).
+If a duplicate element is found (arr[i] == arr[j]), the function immediately returns 0, indicating that not all elements are distinct.
+If no duplicates are found after checking all pairs, the function returns 1, indicating that all elements are distinct.
+
+#include <stdio.h>
+
+// Function to check if all elements in the array are distinct
+int areAllDistinct(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (arr[i] == arr[j]) {
+                return 0; // Return 0 if any duplicate elements are found
+            }
+        }
+    }
+    return 1; // Return 1 if all elements are distinct
+}
+
+int main() {
+    int n;
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    if (areAllDistinct(arr, n)) {
+        printf("All elements in the array are distinct.\n");
+    } else {
+        printf("Not all elements in the array are distinct.\n");
+    }
+
+    return 0;
+}
