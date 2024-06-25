@@ -1,0 +1,45 @@
+Algorithm
+Prompt User for Input:
+
+Declare an integer variable n to store the number of disks.
+Print a message to prompt the user: "Enter the number of disks: ".
+Use scanf to read the input value into n.
+Solve Tower of Hanoi:
+
+Create a function towerOfHanoi that takes four parameters: the number of disks n, the source rod from_rod, the destination rod to_rod, and the auxiliary rod aux_rod.
+In the towerOfHanoi function, check if n is 1:
+If n is 1, print a message to move the disk from from_rod to to_rod.
+Otherwise:
+Recursively call towerOfHanoi to move n-1 disks from from_rod to aux_rod using to_rod as the auxiliary rod.
+Print a message to move the nth disk from from_rod to to_rod.
+Recursively call towerOfHanoi to move n-1 disks from aux_rod to to_rod using from_rod as the auxiliary rod.
+Print the Steps:
+
+In the main function, call towerOfHanoi with n as the number of disks, 'A' as the source rod, 'C' as the destination rod, and 'B' as the auxiliary rod.
+
+Program:
+#include <stdio.h>
+
+// Function to move n disks from from_rod to to_rod using aux_rod
+void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) {
+    if (n == 1) {
+        printf("Move disk 1 from rod %c to rod %c\n", from_rod, to_rod);
+        return;
+    }
+    towerOfHanoi(n - 1, from_rod, aux_rod, to_rod);
+    printf("Move disk %d from rod %c to rod %c\n", n, from_rod, to_rod);
+    towerOfHanoi(n - 1, aux_rod, to_rod, from_rod);
+}
+
+int main() {
+    int n; // Number of disks
+
+    // Prompt the user for the number of disks
+    printf("Enter the number of disks: ");
+    scanf("%d", &n);
+
+    // Solve the Tower of Hanoi problem
+    towerOfHanoi(n, 'A', 'C', 'B'); // A, B and C are names of rods
+
+    return 0;
+}
