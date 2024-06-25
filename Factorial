@@ -1,0 +1,51 @@
+Algorithm
+Prompt User for Input:
+
+Declare an integer variable num to store the user input.
+Print a message to prompt the user: "Enter a number to find its factorial: ".
+Use scanf to read the input value into num.
+Check for Negative Input:
+
+If the input number num is less than 0, print an error message: "Factorial is not defined for negative numbers.".
+End the program if the input is negative.
+Calculate Factorial:
+
+Create a function findFactorial that takes an integer n as input and returns the factorial of n.
+Inside the function, initialize an integer variable fact to 1.
+Use a for loop to iterate from 1 to n and multiply fact by each integer i in the loop.
+Return and Print Factorial:
+
+In the main function, call the findFactorial function with num as the argument and store the result in result.
+Print the factorial result: "The factorial of num is: result".
+Program:
+#include <stdio.h>
+
+// Function to find the factorial of a number
+int findFactorial(int n) {
+    int fact = 1; // Initialize fact to 1
+
+    // Iterate from 1 to n and multiply fact by each integer
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+
+    return fact; // Return the factorial value
+}
+
+int main() {
+    int num; // Variable to store the user input
+
+    // Prompt the user for input
+    printf("Enter a number to find its factorial: ");
+    scanf("%d", &num);
+
+    // Ensure the input is non-negative
+    if (num < 0) {
+        printf("Factorial is not defined for negative numbers.\n");
+    } else {
+        int result = findFactorial(num); // Find the factorial of the input number
+        printf("The factorial of %d is: %d\n", num, result); // Print the factorial
+    }
+
+    return 0;
+}
